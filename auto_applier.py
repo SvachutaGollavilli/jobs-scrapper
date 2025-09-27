@@ -300,4 +300,58 @@ Best regards,
         print(f"Found {len(jobs)} jobs eligible for auto-application")
         
         for job in jobs:
-            if self.applications_today >= self.max_applications_per_day
+            if self.applications_today >= self.max_applications_per_day:
+                break
+            
+            try:
+                print(f"\n--- Processing Job {self.applications_today + 1}/{self.max_applications_per_day} ---")
+                print(f"Company: {job['Company']}")
+                print(f"Title: {job['Title']}")
+                print(f"Priority Score: {job['Priority Score']}")
+                
+                # Only apply to Indeed Easy Apply jobs for safety
+                if job.get('Source') == 'Indeed' and job.get('Easy Apply') == 'Yes':
+                    success = self.apply_to_indeed_job(job)
+                    
+                    if success:
+                        self.applications_today += 1
+                        self.update_application_status(job, 'Auto Applied', 
+                                                     f'Auto-applied on {datetime.now().strftime("%Y-%m-%d")}')
+                        print(f"✅ Successfully applied!")
+                        
+                        # Add delay between applications
+                        time.sleep(30)  # 30 second delay
+                        
+                    else:
+                        self.update_application_status(job, 'Auto Apply Failed',
+                                                     'Auto-application unsuccessful')
+                        print(f"❌ Application failed")
+                        
+                else:
+                    print(f"⏭️  Skipping (not Indeed Easy Apply)")
+                    
+            except Exception as e:
+                print(f"❌ Error processing job: {e}")
+                self.update_application_status(job, 'Auto Apply Error', str(e))
+        
+        print(f"\nAuto-application session complete. Applied to {self.applications_today} jobs today.")
+
+def run_daily_auto_apply():
+    """Daily auto-application job"""
+    applier = JobAutoApplier()
+    applier.run_auto_applications()
+
+if __name__ == "__main__":
+    # Schedule daily auto-applications
+    schedule.every().day.at("09:00").do(run_daily_auto_apply)
+    schedule.every().day.at("15:00").do(run_daily_auto_apply)  # Twice daily
+    
+    print("Auto-applier service started. Scheduled for 9 AM and 3 PM daily.")
+    print("Press Ctrl+C to stop.")
+    
+    try:
+        while True:
+            schedule.run_pending()
+            time.sleep(60)  # Check every minute
+    except KeyboardInterrupt:
+        print("\nAuto-applier service stopped.")
