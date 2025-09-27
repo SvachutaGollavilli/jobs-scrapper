@@ -1,0 +1,59 @@
+{
+  "job_titles": [
+    "Data Engineer",
+    "Machine Learning Engineer",
+    "AI Engineer",
+    "MLOps Engineer",
+    "Data Scientist",
+    "Analytics Engineer",
+    "Backend Engineer"
+  ],
+  "technical_skills": {
+    "programming": [
+      "Python",
+      "Java",
+      "Scala",
+      "SQL",
+      "R"
+    ],
+    "cloud": [
+      "AWS",
+      "GCP",
+      "Azure"
+    ],
+    "tools": [
+      "Docker",
+      "Kubernetes",
+      "Airflow",
+      "Spark",
+      "Kafka"
+    ],
+    "ml_frameworks": [
+      "TensorFlow",
+      "PyTorch",
+      "Scikit-learn"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Snowflake"
+    ]
+  },
+  "soft_skills": [
+    "Communication",
+    "Leadership",
+    "Problem Solving",
+    "Collaboration",
+    "Project Management"
+  ],
+  "industry_keywords": [
+    "data pipeline",
+    "ETL",
+    "data warehouse",
+    "machine learning",
+    "big data",
+    "real-time processing",
+    "data modeling"
+  ]
+}
