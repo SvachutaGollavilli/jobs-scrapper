@@ -1,0 +1,23 @@
+{
+  "blacklisted_companies": [
+    "Revature",
+    "Crossover",
+    "Turing",
+    "Outlier",
+    "Catalyte"
+  ],
+  "reasons": {
+    "Revature": "Training bond requirement",
+    "Crossover": "Excessive monitoring",
+    "Turing": "Low pay for high requirements",
+    "Outlier": "Inconsistent work",
+    "Catalyte": "Training bond requirement"
+  },
+  "warning_keywords": [
+    "training bond",
+    "payback agreement",
+    "unpaid training",
+    "equity only",
+    "commission only"
+  ]
+}
