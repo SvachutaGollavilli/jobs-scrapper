@@ -1,5 +1,3 @@
-# Detailed deployment guide
-
 # Deployment Guide
 
 ## Quick Deploy Options
