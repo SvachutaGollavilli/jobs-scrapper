@@ -1,0 +1,17 @@
+# Credentials
+.env
+google_credentials.json
+*.json
+
+# Generated files
+tailored_resumes/
+cover_letters/
+applications/
+logs/
+*.xlsx
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.DS_Store
