@@ -1,1 +1,70 @@
+version: '3.8'
 
+services:
+  scraper:
+    build:
+      context: ..
+      dockerfile: Docker Files/Dockerfile
+    container_name: job-scraper
+    volumes:
+      - ../scrapy_project:/app/scrapy_project
+      - ../tailored_resumes:/app/tailored_resumes
+      - ../cover_letters:/app/cover_letters
+      - ../applications:/app/applications
+      - ../logs:/app/logs
+      - ../data:/app/data
+      - ../templates:/app/templates
+      - ../google_credentials.json:/app/google_credentials.json:ro
+      - ../.env:/app/.env:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+    restart: unless-stopped
+    command: python main_scrapper.py
+    networks:
+      - job-scraper-network
+
+  auto-applier:
+    build:
+      context: ..
+      dockerfile: Docker Files/Dockerfile
+    container_name: auto-applier
+    depends_on:
+      - scraper
+    volumes:
+      - ../google_credentials.json:/app/google_credentials.json:ro
+      - ../.env:/app/.env:ro
+      - ../logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+    restart: unless-stopped
+    command: python auto_applier.py
+    networks:
+      - job-scraper-network
+
+  resume-api:
+    build:
+      context: ..
+      dockerfile: Docker Files/Dockerfile
+    container_name: resume-api
+    volumes:
+      - ../templates:/app/templates
+      - ../tailored_resumes:/app/tailored_resumes
+      - ../cover_letters:/app/cover_letters
+      - ../.env:/app/.env:ro
+      - ../logs:/app/logs
+    ports:
+      - "5001:5001"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+      - FLASK_ENV=production
+    restart: unless-stopped
+    command: python resume_tailor_api.py
+    networks:
+      - job-scraper-network
+
+networks:
+  job-scraper-network:
+    driver: bridge

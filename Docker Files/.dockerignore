@@ -1,8 +1,39 @@
+# Python
 __pycache__/
+*.py[cod]
 *.pyc
+.Python
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Logs
+logs/
+*.log
+
+# Generated files
+tailored_resumes/
+cover_letters/
+applications/
+data/*.xlsx
+
+# Credentials
 .env
 google_credentials.json
-logs/
-venv/
-.git/
-.DS_Store
+resume.pdf
