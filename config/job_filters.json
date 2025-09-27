@@ -1,0 +1,49 @@
+{
+  "required_keywords": [
+    "Python",
+    "SQL"
+  ],
+  "preferred_keywords": [
+    "AWS",
+    "Docker",
+    "Kubernetes",
+    "Machine Learning",
+    "Data Engineering"
+  ],
+  "excluded_companies": [
+    "Revature",
+    "Crossover",
+    "Turing",
+    "Outlier"
+  ],
+  "excluded_titles": [
+    "Intern",
+    "Unpaid",
+    "Volunteer"
+  ],
+  "min_priority_score": 15,
+  "max_days_old": 14,
+  "preferred_locations": [
+    "Remote",
+    "United States"
+    "New York",
+    "San Francisco",
+    "Seattle",
+    "Austin"
+  ],
+  "experience_levels": [
+    "entry",
+    "mid",
+    "senior"
+  ],
+  "salary_range": {
+    "min": 75000,
+    "max": 200000
+  },
+  "job_types": [
+    "Full-time",
+    "Contract"
+  ],
+  "remote_only": false,
+  "easy_apply_preferred": true
+}
