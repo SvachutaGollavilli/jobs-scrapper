@@ -27,7 +27,7 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
     'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
     'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
-    'scrapy_project.middlewares.SeleniumMiddleware': 800,
+    'scrapy_project.middlewares.CustomSeleniumMiddleware': 800,
 }
 
 # Item pipelines
