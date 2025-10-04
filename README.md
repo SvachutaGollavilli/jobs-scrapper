@@ -36,16 +36,6 @@
 4. Runs automatically 3x daily
 ```
 
-### Option 4: Heroku (Free Tier)
-```bash
-# Deploy to Heroku
-
-# Steps
-1. Install Heroku CLI
-2. heroku create job-scraper
-3. git push heroku main
-4. heroku ps:scale worker=1
-```
 
 
 # Free Job Scraper & Auto-Applier
@@ -69,7 +59,7 @@ A completely free, automated job scraping and application system that scrapes jo
 
 ## 🚀 Quick Start
 
-See [Installation Guide](docs/installation.md)
+See [Installation Guide](installation.md)
 
 ## 📊 Expected Results
 
