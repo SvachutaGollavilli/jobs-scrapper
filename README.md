@@ -71,7 +71,8 @@ See [Installation Guide](installation.md)
 ## ⚠️ Legal Notice
 
 This tool is for personal use only. Users are responsible for compliance with website terms of service and employment laws.
+check the [PRIVACY_POLICY.md](PRIVACY_POLICY.md) and [LEGAL_DISCLAIMER.md](LEGAL_DISCLAIMER.md) for more details.
 
-## 🤝 Contributing
+## 🤝 Contributing 
 
 Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md)
